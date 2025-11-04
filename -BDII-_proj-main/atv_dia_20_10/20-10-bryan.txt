@@ -1,0 +1,93 @@
+################################################## ATIVIDADE 1 ##################################################
+1) Texto descritivo (estrutura hierárquica e função prática)
+10. authuser (auth_user)
+
+Descrição / Função prática:
+Armazena credenciais e metadados de acesso (e-mail de login, hash de senha, MFA, último acesso) vinculados 1:1 ao funcionário. Garante unicidade do login e auditoria.
+Relação hierárquica: FUNCIONARIO ==> AUTHUSER.
+
+Campos essenciais:
+
+id_auth_user (PK) · email_login (UNIQUE, NOT NULL) · password_hash (NOT NULL) · mfa_secret (opcional) · last_login (opcional) · id_funcionario (UNIQUE, FK).
+
+11. telefone
+
+Descrição / Função prática:
+Registra telefones dos funcionários, com tipo (residencial, comercial, celular, WhatsApp etc.) e marcação de principal. Padroniza o formato para E.164 Brasil.
+Relação hierárquica: TIPOTELEFONE ==> TELEFONE ==> FUNCIONARIO.
+
+Campos essenciais:
+
+id_telefone (PK) · numero_e164 (NOT NULL, CHECK ^\+55[0-9]{10,13}$) · is_principal (bool, default false) · id_funcionario (FK) · id_tipo_telefone (FK).
+
+12. endereco
+
+Descrição / Função prática:
+Registra endereços dos funcionários, vinculados a um CEP (e, por consequência, a um município e UF). Permite marcar um endereço principal por funcionário e manter vigência (valid_from/valid_to) para histórico.
+Relação hierárquica: UF ==> MUNICIPIO ==> CEP ==> ENDERECO <== FUNCIONARIO (e TIPOENDERECO ==> ENDERECO).
+
+Campos essenciais:
+
+id_endereco (PK) · logradouro, numero, bairro (NOT NULL) · complemento (opcional) · is_principal (bool) · valid_from, valid_to (opcional) · id_funcionario (FK) · id_cep (FK) · id_tipo_endereco (FK).
+
+Regra: UNIQUE (id_funcionario, is_principal) DEFERRABLE — assegura no commit “apenas um principal” por funcionário.
+
+################################################## ATIVIDADE 2 ##################################################
+
+Modelo aderente:
+
+UF (1) → MUNICIPIO (N) → CEP (N) ✔
+
+TIPOENDERECO (1) → ENDERECO (N) ← FUNCIONARIO (1) ✔
+
+TIPOTELEFONE (1) → TELEFONE (N) ← FUNCIONARIO (1) ✔
+
+FUNCIONARIO (1) → AUTHUSER (1:1) ✔
+
+Regras garantidas no banco:
+
+cpf com 11 dígitos e único em funcionario.
+
+email_login único e obrigatório em auth_user.
+
+numero_e164 no padrão +55 em telefone (CHECK).
+
+Apenas um endereço principal por funcionário (UNIQUE(id_funcionario, is_principal) DEFERRABLE).
+
+Ajustes que apliquei (se ainda não existiam): índices únicos, NOT NULL e CHECKs.
+
+-- Conferência rápida de estrutura/índices/regras
+WITH checks AS (
+  SELECT 'funcionario.cpf UNIQUE' AS regra,
+         (SELECT COUNT(*)=1 FROM pg_index i
+           JOIN pg_class t ON t.oid=i.indrelid
+           JOIN pg_attribute a ON a.attrelid=t.oid AND a.attnum=ANY(i.indkey)
+          WHERE t.relname='funcionario' AND i.indisunique AND a.attname='cpf') AS ok
+  UNION ALL
+  SELECT 'auth_user.email_login UNIQUE',
+         (SELECT COUNT(*)=1 FROM pg_index i
+           JOIN pg_class t ON t.oid=i.indrelid
+           JOIN pg_attribute a ON a.attrelid=t.oid AND a.attnum=ANY(i.indkey)
+          WHERE t.relname='auth_user' AND i.indisunique AND a.attname='email_login')
+  UNION ALL
+  SELECT 'auth_user.id_funcionario UNIQUE (1:1)',
+         (SELECT COUNT(*)=1 FROM pg_index i
+          JOIN pg_class t ON t.oid=i.indrelid
+          JOIN pg_indexes x ON x.indexname = i.indexrelid::regclass::text
+         WHERE t.relname='auth_user' AND i.indisunique
+           AND x.indexdef ILIKE '%(id_funcionario)%')
+  UNION ALL
+  SELECT 'telefone.numero_e164 CHECK +55',
+         EXISTS (SELECT 1 FROM pg_constraint c
+           JOIN pg_class t ON t.oid=c.conrelid
+          WHERE t.relname='telefone' AND c.contype='c'
+            AND c.consrc ILIKE '%+55%')
+  UNION ALL
+  SELECT 'endereco único principal (DEFERRABLE)',
+         EXISTS (SELECT 1
+           FROM pg_constraint c JOIN pg_class t ON t.oid=c.conrelid
+          WHERE t.relname='endereco' AND c.contype='u'
+            AND c.condeferrable AND c.consrc ILIKE '%is_principal%')
+)
+SELECT regra, CASE WHEN ok THEN 'OK' ELSE 'ERRO' END AS status FROM checks;
+

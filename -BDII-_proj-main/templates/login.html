@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+  <section class="hero">
+    <h1>Login</h1>
+    <form method="post" action="{{ url_for('auth.login_post') }}" style="max-width:320px;margin:auto;text-align:left;">
+      <label for="username">Usuário</label><br>
+      <input id="username" name="username" type="text" required style="width:100%;padding:8px;margin:6px 0;"><br>
+      <label for="password">Senha</label><br>
+      <input id="password" name="password" type="password" required style="width:100%;padding:8px;margin:6px 0;"><br>
+      <button class="btn" type="submit" style="width:100%;">Entrar</button>
+    </form>
+  </section>
+{% endblock %}
