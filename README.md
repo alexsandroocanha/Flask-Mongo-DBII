@@ -1,5 +1,5 @@
 <h1 align="center">Flask Mongo DBII</h1>
-<p align="center"> <i>Subtitulo do projeto</i></p>
+<p align="center"> <i>Projeto de modelagem e manipulação de dados SQL e NoSQL</i></p>
 
 ## Resumo
 Aqui colocamos o resumo do projeto
@@ -33,14 +33,12 @@ Aqui colocamos o resumo do projeto
 * Trabalho atualizado `24/10/2025`
 
 ### Contribuidores
-- Bryan Serafim
-  
-[![Github](https://img.shields.io/badge/github-000000?style=for-the-badge&logo=githubcopilot&logoColor=white
+> Bryan Serafim
+> [![Github](https://img.shields.io/badge/github-000000?style=for-the-badge&logo=githubcopilot&logoColor=white
 )](https://github.com/Bryan-Serafim)
   
-- Leonardo Eliel
-  
-[![Github](https://img.shields.io/badge/github-000000?style=for-the-badge&logo=githubcopilot&logoColor=white
+> Leonardo Eliel
+> [![Github](https://img.shields.io/badge/github-000000?style=for-the-badge&logo=githubcopilot&logoColor=white
 )](https://github.com/LeoEliel)
 
 ### Informações para Contato
