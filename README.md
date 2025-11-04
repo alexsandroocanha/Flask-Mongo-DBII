@@ -33,8 +33,8 @@ Aqui colocamos o resumo do projeto
 * Trabalho atualizado `24/10/2025`
 
 ### Contribuidores
-- Bryan
-- Leonardo
+- Bryan Serafim 
+- Leonardo Eliel
 
 ### Informações para Contato
 
