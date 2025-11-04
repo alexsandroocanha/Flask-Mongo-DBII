@@ -35,12 +35,12 @@ Aqui colocamos o resumo do projeto
 ### Contribuidores
 - Bryan Serafim
   
-[![Github](https://img.shields.io/badge/github%20copilot-000000?style=for-the-badge&logo=githubcopilot&logoColor=white
+[![Github](https://img.shields.io/badge/github-000000?style=for-the-badge&logo=githubcopilot&logoColor=white
 )](https://github.com/Bryan-Serafim)
   
 - Leonardo Eliel
   
-[![Github](https://img.shields.io/badge/github%20copilot-000000?style=for-the-badge&logo=githubcopilot&logoColor=white
+[![Github](https://img.shields.io/badge/github-000000?style=for-the-badge&logo=githubcopilot&logoColor=white
 )](https://github.com/LeoEliel)
 
 ### Informações para Contato
