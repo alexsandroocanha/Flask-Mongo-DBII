@@ -1,0 +1,122 @@
+cpf_funcionario,cep,logradouro,numero,complemento,bairro,tipo_endereco,is_principal
+18159083016,58010010,Av. Tupi,352,,Vila Rica,correspondência,true
+90996030824,76801000,Av. Brasil,2983,,Alvorada,residencial,true
+99351819093,38400000,Av. Tupi,111,,Alvorada,correspondência,true
+99351819093,20040002,Av. Independência,2580,Fundos,Centro,comercial,false
+32319487574,69301000,Rua Rondônia,714,,Boa Vista,cobrança,true
+60189555979,58010010,Rua Rondônia,1297,,Alvorada,comercial,true
+97465075291,13010000,Rua Rondônia,2641,,São José,cobrança,true
+12768426846,78005150,Rua Pará,478,,Industrial,residencial,true
+07924402685,64000010,Rua Minas Gerais,2426,,Boa Vista,cobrança,true
+86666176031,38400000,Av. Independência,904,,Jardim das Oliveiras,residencial,true
+28159013962,89201000,Rua das Acácias,1354,,Universitário,residencial,true
+77412154728,69005120,Rua Goiás,148,,Industrial,correspondência,true
+14852538885,65010610,Rua Rondônia,62,Apto 101,Aparecida,correspondência,true
+14852538885,30120010,Av. Rio Branco,75,Bloco B,Alvorada,comercial,false
+87500474395,74000000,Rua Goiás,2255,,Alvorada,cobrança,true
+87500474395,79002190,Rua Amazonas,433,,São José,comercial,false
+53799075116,57020000,Av. Brasil,58,,Boa Vista,correspondência,true
+61222029729,57020000,Rua Amazonas,2848,Casa 2,Aparecida,cobrança,true
+18263304348,59010000,Rua das Palmeiras,2291,,Centro,cobrança,true
+79868282880,66010000,Av. Rio Branco,2301,Bloco B,Nova Esperança,comercial,true
+79868282880,30120010,Av. Rio Branco,2312,,Jardim das Oliveiras,comercial,false
+79180588871,85800000,Rua das Palmeiras,1851,Fundos,Centro,cobrança,true
+80175989834,69900060,Av. Central,1655,,Centro,comercial,true
+83726167513,74900000,Rua Amazonas,1730,,Alvorada,comercial,true
+42731672326,59010000,Rua do Sol,363,,Centro,correspondência,true
+58770658948,20040002,Rua Rondônia,1881,,Vila Rica,cobrança,true
+26462889751,59010000,Rua do Sol,1407,,Centro,correspondência,true
+14193141705,85800000,Rua das Palmeiras,2278,Sala 3,Vila Rica,residencial,true
+24023448347,74000000,Rua Minas Gerais,609,,Jardim das Oliveiras,correspondência,true
+08838737167,64000010,Rua Pará,1820,,Centro,cobrança,true
+26502014620,50010000,Rua das Acácias,2319,,Centro,correspondência,true
+07224704558,64000010,Rua das Acácias,1493,,Universitário,residencial,true
+17483380141,97010000,Rua 7 de Setembro,2512,,Vila Rica,residencial,true
+17483380141,69005120,Rua das Flores,502,Casa 2,Centro,comercial,false
+19829657249,66010000,Av. Tupi,1216,,Vila Rica,residencial,true
+88909310025,80010010,Av. Rio Branco,130,,Jardim das Oliveiras,comercial,true
+74071881817,79002190,Rua 7 de Setembro,1307,Casa 2,Aparecida,correspondência,true
+61740931925,65010610,Av. Central,2307,Fundos,Alvorada,comercial,true
+07413748477,59010000,Rua Minas Gerais,171,,Boa Vista,comercial,true
+47187463319,69005120,Rua das Acácias,1303,,Centro,residencial,true
+84153776020,74900000,Rua Goiás,666,,Industrial,cobrança,true
+51505561304,90010001,Rua das Flores,2757,,São José,correspondência,true
+51505561304,69301000,Rua Pará,2050,Sala 3,Universitário,correspondência,false
+64041042346,68900089,Av. Tupi,1812,Bloco B,Jardim das Oliveiras,correspondência,true
+83106792470,49010000,Rua Rondônia,1576,,Centro,correspondência,true
+63478612213,64000010,Av. Central,700,,Jardim das Oliveiras,correspondência,true
+83312581535,50010000,Av. Tupi,286,,São José,cobrança,true
+64507495288,20040002,Rua das Palmeiras,2140,,Aparecida,comercial,true
+64507495288,76801000,Rua das Palmeiras,1288,,Vila Rica,correspondência,false
+64020679701,58010010,Av. Rio Branco,101,,Universitário,comercial,true
+81718002390,66010000,Rua Rondônia,470,,Vila Rica,cobrança,true
+81718002390,50010000,Rua Minas Gerais,2395,,Jardim das Oliveiras,residencial,false
+14893643900,70040900,Av. Independência,1092,,Universitário,correspondência,true
+38306400376,01001000,Av. Tupi,818,Apto 101,São José,comercial,true
+56563048137,89201000,Rua das Flores,2724,Fundos,Centro,correspondência,true
+97923760926,57020000,Rua das Palmeiras,197,,São José,comercial,true
+67511253287,76801000,Rua Rondônia,2401,Sala 3,Industrial,residencial,true
+10141561836,30120010,Rua Goiás,1345,,Universitário,residencial,true
+87355706360,79002190,Rua do Sol,480,,São José,residencial,true
+55459045440,74900000,Rua das Palmeiras,2086,,São José,comercial,true
+67272042935,64000010,Rua Rondônia,2468,,Universitário,comercial,true
+61078852611,74900000,Av. Rio Branco,272,,Aparecida,correspondência,true
+61078852611,88010000,Rua das Palmeiras,416,Casa 2,Boa Vista,correspondência,false
+32679381444,69005120,Av. Independência,2263,Fundos,Centro,residencial,true
+32493516438,69900060,Rua Amazonas,2310,,Centro,residencial,true
+73750431039,40020000,Av. Brasil,1097,,Nova Esperança,correspondência,true
+01995305520,88010000,Rua do Sol,388,Bloco B,Jardim das Oliveiras,correspondência,true
+52941307871,77001000,Rua 7 de Setembro,2637,Casa 2,Universitário,residencial,true
+64644604956,88010000,Av. Central,610,,Boa Vista,correspondência,true
+64644604956,69900060,Rua 7 de Setembro,1231,,Vila Rica,correspondência,false
+06261169572,68900089,Rua Pará,1110,,Boa Vista,comercial,true
+95822542821,88010000,Rua das Palmeiras,1239,,Alvorada,correspondência,true
+09619239693,40020000,Rua das Palmeiras,1702,,Jardim das Oliveiras,cobrança,true
+51233080516,20040002,Rua Pará,2512,,Boa Vista,correspondência,true
+51233080516,29010915,Rua Pará,393,Sala 3,Vila Rica,cobrança,false
+66578720097,78005150,Rua das Acácias,2825,,Aparecida,comercial,true
+12565178800,90010001,Av. Central,1682,,Aparecida,comercial,true
+86201913274,40020000,Av. Central,1546,Sala 3,Jardim das Oliveiras,residencial,true
+59472487394,50010000,Av. Brasil,485,Fundos,São José,cobrança,true
+59472487394,69005120,Rua Amazonas,2754,,Vila Rica,correspondência,false
+45624180578,79002190,Rua Minas Gerais,2325,Sala 3,Universitário,cobrança,true
+46592551732,70040900,Rua das Palmeiras,2690,Apto 101,Alvorada,correspondência,true
+00324966850,70040900,Av. Brasil,1965,,Boa Vista,correspondência,true
+54185836949,69900060,Rua Rondônia,2937,,Centro,cobrança,true
+71124640085,78005150,Rua Amazonas,1272,Sala 3,Centro,cobrança,true
+80623201098,85800000,Av. Brasil,2518,Bloco B,Nova Esperança,residencial,true
+92841407806,77001000,Rua das Flores,1675,,Vila Rica,comercial,true
+30154048684,65010610,Rua das Acácias,991,,Vila Rica,comercial,true
+25365936877,68900089,Rua 7 de Setembro,798,,Centro,comercial,true
+36991922001,20040002,Rua das Flores,752,,Universitário,residencial,true
+36991922001,97010000,Rua 7 de Setembro,2875,,Alvorada,residencial,false
+01019538161,65010610,Rua do Sol,258,Casa 2,Centro,residencial,true
+47121345564,80010010,Rua Amazonas,1025,Apto 101,Alvorada,cobrança,true
+47121345564,89201000,Rua Goiás,2091,Apto 101,Centro,comercial,false
+87490606815,97010000,Rua Minas Gerais,2569,,Centro,correspondência,true
+87490606815,29010915,Av. Rio Branco,2501,,Centro,cobrança,false
+26083400571,97010000,Rua Minas Gerais,739,,Jardim das Oliveiras,comercial,true
+24337211781,90010001,Rua Rondônia,2728,,Vila Rica,cobrança,true
+05344688263,65010610,Rua 7 de Setembro,995,,Centro,residencial,true
+82785277493,90010001,Rua 7 de Setembro,2595,,Industrial,comercial,true
+82785277493,30120010,Av. Tupi,2107,,Nova Esperança,correspondência,false
+22359852353,30120010,Rua Goiás,2334,,Alvorada,cobrança,true
+44643114367,80010010,Av. Independência,935,,São José,correspondência,true
+44643114367,40020000,Av. Central,2134,,São José,comercial,false
+02496036996,66010000,Rua das Palmeiras,2228,,Boa Vista,correspondência,true
+76541636246,49010000,Rua das Flores,196,,Aparecida,correspondência,true
+76541636246,65010610,Rua Pará,904,Casa 2,Alvorada,residencial,false
+06710483238,85800000,Rua das Acácias,936,Sala 3,Alvorada,correspondência,true
+58567326819,38400000,Av. Rio Branco,2646,Sala 3,Industrial,cobrança,true
+58567326819,30120010,Rua das Palmeiras,947,Casa 2,Vila Rica,cobrança,false
+66594134683,78005150,Rua das Flores,1458,,Alvorada,cobrança,true
+78325674827,29010915,Rua das Acácias,383,,Centro,residencial,true
+04534577691,69301000,Rua Amazonas,926,,Jardim das Oliveiras,comercial,true
+85900314491,50010000,Av. Rio Branco,957,,Jardim das Oliveiras,comercial,true
+82991843738,66010000,Rua Pará,1021,Casa 2,Vila Rica,cobrança,true
+27780772737,89201000,Av. Tupi,979,,Industrial,cobrança,true
+27780772737,97010000,Rua das Acácias,2479,Sala 3,Industrial,correspondência,false
+74756612500,57020000,Rua do Sol,743,,Alvorada,residencial,true
+72036251557,30120010,Rua Pará,371,,Universitário,comercial,true
+04457658485,74900000,Av. Brasil,1989,Bloco B,Vila Rica,cobrança,true
+04457658485,77001000,Rua do Sol,2879,,Nova Esperança,correspondência,false
