@@ -1,14 +1,6 @@
 # Python
 __pycache__/
 *.pyc
-.venv/
-env/
 
 # Flask
 instance/
-
-# Credenciais
-.env
-
-# Docker volumes locais (se usar)
-db_data/
