@@ -155,3 +155,115 @@ CREATE UNIQUE INDEX IF NOT EXISTS uq_cep_logradouro_desc
 CREATE INDEX IF NOT EXISTS ix_cep_logradouro_id_cep        ON cep_logradouro(id_cep);
 CREATE INDEX IF NOT EXISTS ix_cep_logradouro_id_municipio  ON cep_logradouro(id_municipio);
 CREATE INDEX IF NOT EXISTS ix_cep_logradouro_logradouro     ON cep_logradouro(LOWER(logradouro));
+
+
+BEGIN;
+
+-- 1) Tabela de SETOR
+CREATE TABLE IF NOT EXISTS setor (
+  id_setor      SERIAL PRIMARY KEY,
+  nome          VARCHAR(100) NOT NULL UNIQUE,
+  descricao     TEXT
+);
+
+-- 2) Tabela de CARGO (pertence a um Setor)
+CREATE TABLE IF NOT EXISTS cargo (
+  id_cargo      SERIAL PRIMARY KEY,
+  id_setor      INTEGER NOT NULL REFERENCES setor(id_setor) ON DELETE RESTRICT,
+  nome          VARCHAR(100) NOT NULL,
+  descricao     TEXT,
+  CONSTRAINT uq_cargo_por_setor UNIQUE (id_setor, nome)
+);
+
+-- 3) Ligações na tabela FUNCIONARIO
+--    (deixe NULLABLE para poder cadastrar/editar depois)
+DO $$
+BEGIN
+  IF NOT EXISTS (
+    SELECT 1 FROM information_schema.columns
+    WHERE table_name='funcionario' AND column_name='id_setor'
+  ) THEN
+    ALTER TABLE funcionario ADD COLUMN id_setor INTEGER;
+  END IF;
+
+  IF NOT EXISTS (
+    SELECT 1 FROM information_schema.columns
+    WHERE table_name='funcionario' AND column_name='id_cargo'
+  ) THEN
+    ALTER TABLE funcionario ADD COLUMN id_cargo INTEGER;
+  END IF;
+END$$;
+
+-- 3.1) FKs
+DO $$
+BEGIN
+  IF NOT EXISTS (
+    SELECT 1 FROM pg_constraint
+    WHERE conname = 'fk_funcionario_setor'
+  ) THEN
+    ALTER TABLE funcionario
+      ADD CONSTRAINT fk_funcionario_setor
+      FOREIGN KEY (id_setor) REFERENCES setor(id_setor) ON DELETE SET NULL;
+  END IF;
+
+  IF NOT EXISTS (
+    SELECT 1 FROM pg_constraint
+    WHERE conname = 'fk_funcionario_cargo'
+  ) THEN
+    ALTER TABLE funcionario
+      ADD CONSTRAINT fk_funcionario_cargo
+      FOREIGN KEY (id_cargo) REFERENCES cargo(id_cargo) ON DELETE SET NULL;
+  END IF;
+END$$;
+
+-- 4) Regra de consistência:
+--    Se informar id_cargo, ele PRECISA pertencer ao id_setor do mesmo funcionário.
+--    (Trigger BEFORE INSERT/UPDATE)
+CREATE OR REPLACE FUNCTION fn_check_funcionario_cargo_setor()
+RETURNS TRIGGER AS $$
+DECLARE
+  cargo_setor_id INTEGER;
+BEGIN
+  -- Se não tem cargo, ok
+  IF NEW.id_cargo IS NULL THEN
+    RETURN NEW;
+  END IF;
+
+  -- Busca o setor do cargo informado
+  SELECT c.id_setor INTO cargo_setor_id
+  FROM cargo c
+  WHERE c.id_cargo = NEW.id_cargo;
+
+  IF cargo_setor_id IS NULL THEN
+    RAISE EXCEPTION 'Cargo (%) inexistente.', NEW.id_cargo;
+  END IF;
+
+  -- Se funcionário não informou id_setor, herdamos do cargo para manter coerência
+  IF NEW.id_setor IS NULL THEN
+    NEW.id_setor := cargo_setor_id;
+    RETURN NEW;
+  END IF;
+
+  -- Se informou, precisa bater
+  IF NEW.id_setor <> cargo_setor_id THEN
+    RAISE EXCEPTION 'Inconsistência: cargo(%) pertence ao setor(%), mas foi informado setor(%).',
+      NEW.id_cargo, cargo_setor_id, NEW.id_setor;
+  END IF;
+
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP TRIGGER IF EXISTS trg_check_funcionario_cargo_setor ON funcionario;
+CREATE TRIGGER trg_check_funcionario_cargo_setor
+BEFORE INSERT OR UPDATE OF id_setor, id_cargo ON funcionario
+FOR EACH ROW
+EXECUTE FUNCTION fn_check_funcionario_cargo_setor();
+
+-- 5) Índices úteis
+CREATE INDEX IF NOT EXISTS idx_setor_nome ON setor (nome);
+CREATE INDEX IF NOT EXISTS idx_cargo_nome ON cargo (nome);
+CREATE INDEX IF NOT EXISTS idx_funcionario_setor ON funcionario (id_setor);
+CREATE INDEX IF NOT EXISTS idx_funcionario_cargo ON funcionario (id_cargo);
+
+COMMIT;
