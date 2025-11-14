@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Editar View: {{ name }}</h2>
+  <form method="POST">
+    <label for="new_name">Novo Nome:</label>
+    <input type="text" id="new_name" name="new_name" value="{{ name }}" required>
+    <button type="submit">Salvar Alterações</button>
+  </form>
+  <p><a class="link" href="{{ url_for('main.menu') }}">Voltar ao Menu</a></p>
+{% endblock %}

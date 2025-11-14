@@ -5,6 +5,7 @@
   <ol class="menu-list">
     {% for v in views %}
       <li><a href="{{ url_for('main.view_dynamic', name=v) }}">{{ v }}</a></li>
+      <a class="edit-link" href="{{ url_for('main.edit_view', name=v) }}">Editar</a>
     {% endfor %}
   </ol>
   {% else %}

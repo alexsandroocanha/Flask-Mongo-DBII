@@ -38,6 +38,17 @@ def view_dynamic(name: str):
         abort(404, description=f"View {name} não encontrada")
     return render_template("view_generic.html", title=f"View {name}", viewname=name, cols=cols, rows=rows)
 
+@bp.route('/edit/<name>', methods=['GET', 'POST'])
+def edit_view(name):
+    if request.method == 'POST':
+        # Aqui você atualiza a view no banco de dados
+        new_name = request.form.get('new_name')
+        # Exemplo de atualização (substitua pela lógica real)
+        if name in views:
+            views[views.index(name)] = new_name
+        return redirect(url_for('main.menu'))
+    return render_template('edit_view.html', name=name)
+
 @bp.get("/logs")
 def ver_logs():
     from dao.logger import logs

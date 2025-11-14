@@ -1,6 +1,32 @@
 # Python
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+*.env
+*.venv
+*.egg
+*.egg-info/
+dist/
+build/
+*.log
 
 # Flask
 instance/
+*.sqlite3
+
+# Docker
+*.env
+*.env.*
+docker-compose.override.yml
+volumes/
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS-specific
+.DS_Store
+Thumbs.db

@@ -47,6 +47,20 @@ services:
     depends_on:
       - mongo
 
+  flask-app:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: flask_bdii
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    volumes:
+      - ..:/app
+    depends_on:
+      - db
+      - mongo
+
 volumes:
   pgdata:
   mongodata:

@@ -24,4 +24,5 @@
     <p>Nenhum dado encontrado na view {{ viewname }}.</p>
   {% endif %}
   <p><a class="link" href="{{ url_for('main.app_menu') }}">Voltar ao Menu</a></p>
+  <a class="edit-link" href="{{ url_for('main.edit_view', name=v) }}">Editar</a>
 {% endblock %}
