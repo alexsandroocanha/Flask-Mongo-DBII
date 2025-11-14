@@ -32,7 +32,6 @@ services:
       - "27017:27017"
     volumes:
       - mongodata:/data/db               # <— volume nomeado
-    command: ["--bind_ip_all"]
 
   mongo-express:
     image: mongo-express:1

@@ -2,7 +2,7 @@ import datetime
 from pymongo import MongoClient
 
 # conecta ao Mongo local
-client = MongoClient("mongodb://localhost:27017/")
+client = MongoClient("mongodb://mongo:27017/")
 db = client["ifro_request_logs"]   # banco Mongo
 logs = db["user_actions"]          # coleção
 
